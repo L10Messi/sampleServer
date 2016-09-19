@@ -148,7 +148,7 @@ public class GenericDao<T, PK extends Serializable> implements java.io.Serializa
 	 * */
 	public String getParamFormat(String ids){
 		String strIds[] = ids.split(",");
-		if(strIds.length > 1){
+		if(strIds.length >= 1){
 			String id = "";
 			for (String str : strIds) {
 				id += "'" + str + "',";

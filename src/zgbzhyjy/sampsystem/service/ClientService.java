@@ -61,7 +61,7 @@ public class ClientService {
 		String clientIds=this.clientDao.getParamFormat(ids);
 		
 		//校验有没有 检测任务 使用该客户端
-		String sqlTask = "SELECT 1 FROM SampTaskInfo WHERE cid IN ('" + clientIds + "') and SampTaskStatus=0 ";
+		String sqlTask = "SELECT 1 FROM SampTaskInfo WHERE cid IN (" + clientIds + ") and SampTaskStatus=0 ";
 		List<?> tasklistcount=sampTaskDao.getListBySQL(sqlTask);
 		if (tasklistcount != null && tasklistcount.size() > 0) {
 			throw new Exception("该客户端还存在抽样任务，如想删除此客户端，请等抽样任务结束");

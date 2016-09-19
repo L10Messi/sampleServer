@@ -69,9 +69,8 @@ public class ProductService {
 	@SuppressWarnings("rawtypes")
 	public void deleteProduct(String ids) throws Exception{
 		String productIds = this.productDao.getParamFormat(ids);
-		
 		//首先要校验该产品是否还有 质量特性 
-		String sql = "SELECT 1 FROM QualChrtInfo WHERE pid IN ('" + productIds + "') and isDel=0";
+		String sql = "SELECT 1 FROM QualChrtInfo WHERE pid IN (" + productIds + ") and isDel=0";
 		List listcount = this.qualChrtDao.getListBySQL(sql);
 		System.out.println(sql);
 		
