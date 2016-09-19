@@ -71,9 +71,10 @@ public class ProductService {
 		String productIds = this.productDao.getParamFormat(ids);
 		
 		//首先要校验该产品是否还有 质量特性 
-		String sql = "SELECT 1 FROM QualChrtInfo WHERE pid IN (" + productIds + ") and isDel=0";
+		String sql = "SELECT 1 FROM QualChrtInfo WHERE pid IN ('" + productIds + "') and isDel=0";
 		List listcount = this.qualChrtDao.getListBySQL(sql);
 		System.out.println(sql);
+		
 		if (listcount != null && listcount.size() > 0) {
 			throw new Exception("该产品还存在质量特性，如想删除此产品，先删掉所有质量特性");
 		}
