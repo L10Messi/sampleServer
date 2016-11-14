@@ -41,7 +41,8 @@ $(function() {
 								$('#form_edit').form('load',{
 									pid:rows[0].pid,
 									ProductID:rows[0].productID,
-									ProductName:rows[0].productName									
+									ProductName:rows[0].productName,
+									createdDate:rows[0].createdDate
 								});
 								$('#product_edit').window('open');
 							}
@@ -127,8 +128,7 @@ $(function() {
 					var month = value.month + 1;
 					var date = value.date + 1; 
 					return year+"-"+month+"-"+date;
-				}
-				return value;
+				}  
 			 }
 		}]]
 	});
@@ -207,6 +207,12 @@ function query(){
 					<td align="right">产品名称：</td>
 					<td align="left">
 						<input class="easyui-validatebox textbox"  name="ProductName" style="width: 200px;height: 20px;"   required></input>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">产品名称：</td>
+					<td align="left">
+						<input class="easyui-validatebox textbox"  name="createdDate" style="width: 200px;height: 20px;"   required></input>
 					</td>
 				</tr>
 				<tr>
